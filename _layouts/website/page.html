@@ -27,17 +27,17 @@
 {% endblock %}
 
 {% block body %}
-<div class="book">
-    <div class="book-header">
-        <div class="book-header-inner">
+<div class="hengshidoc">
+    <div class="hengshidoc-header">
+        <div class="hengshidoc-header-inner">
             <h1>{{ config.title }}</h1>
             {% block search_input %}{% endblock %}
         </div>
-        <div class="book-header-breadcrumb"></div>
+        <div class="hengshidoc-header-breadcrumb"></div>
     </div>
 
-    <div class="book-body">
-        <div class="book-summary">
+    <div class="hengshidoc-body">
+        <div class="hengshidoc-summary">
             {% block book_sidebar %}
                 {% block book_summary %}
                     <nav role="navigation">
@@ -66,7 +66,7 @@
         {% endblock %}
     </div>
 
-    <div class="book-footer">
+    <div class="hengshidoc-footer">
         <p>2017-2018 hengshi.com 京 ICP 备17050711号</p>
     </div>
 
