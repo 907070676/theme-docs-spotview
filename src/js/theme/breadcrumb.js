@@ -2,7 +2,7 @@ var $ = require('jquery');
 var url = require('url');
 
 function init() {
-  var $breadcrumb = $('.book-header-breadcrumb');
+  var $breadcrumb = $('.hengshidoc-header-breadcrumb');
   var crumbs = window.location.pathname.slice(1).split('/');
 
   crumbs.forEach(function(path, index) {

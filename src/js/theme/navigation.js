@@ -13,7 +13,7 @@ var usePushState = (typeof history.pushState !== 'undefined');
 */
 function getScroller() {
     if (platform.isSmallScreen()) {
-        return $('.book-body');
+        return $('.hengshidoc-body');
     } else {
         return $('.body-inner');
     }
@@ -264,7 +264,7 @@ function handleNavigation(relativeUrl, push) {
                 });
 
                 var $page = $(html),
-                    $pageBody = $page.find('.book'),
+                    $pageBody = $page.find('.hengshidoc'),
                     $pageHead;
 
                 // We only use history.pushState for pages generated with GitBook
@@ -283,7 +283,7 @@ function handleNavigation(relativeUrl, push) {
                 // Force reparsing HTML to prevent wrong URLs in Safari
                 $page = $(html);
                 $pageHead = $page.find('[data-element=head]');
-                $pageBody = $page.find('.book');
+                $pageBody = $page.find('.hengshidoc');
 
                 // Merge heads
                 // !! Warning !!: we only update necessary portions to avoid strange behavior (page flickering etc ...)
@@ -304,17 +304,17 @@ function handleNavigation(relativeUrl, push) {
                 $head.append($pageHead.find('link[rel=next]'));
 
                 // Merge body
-                var bodyClass = $('.book').attr('class');
-                var scrollPosition = $('.book-summary').scrollTop();
+                var bodyClass = $('.hengshidoc').attr('class');
+                var scrollPosition = $('.hengshidoc-summary').scrollTop();
 
-                $pageBody.toggleClass('with-summary', $('.book').hasClass('with-summary'));
+                $pageBody.toggleClass('with-summary', $('.hengshidoc').hasClass('with-summary'));
 
-                $('.book').replaceWith($pageBody);
-                $('.book').attr('class', bodyClass);
-                $('.book-summary').scrollTop(scrollPosition);
+                $('.hengshidoc').replaceWith($pageBody);
+                $('.hengshidoc').attr('class', bodyClass);
+                $('.hengshidoc-summary').scrollTop(scrollPosition);
 
                 // Update state
-                gitbook.state.$book = $('.book');
+                gitbook.state.$book = $('.hengshidoc');
                 preparePage(!hash);
 
                 // Scroll to hashtag position
@@ -351,7 +351,7 @@ function updateNavigationPosition() {
 }
 
 function preparePage(resetScroll) {
-    var $bookBody = $('.book-body');
+    var $bookBody = $('.hengshidoc-body');
     var $bookInner = $bookBody.find('.body-inner');
     var $pageWrapper = $bookInner.find('.page-wrapper');
 
@@ -370,7 +370,7 @@ function preparePage(resetScroll) {
     }
 
     // Get current page summary chapters
-    $chapters = $('.book-summary .summary .chapter')
+    $chapters = $('.hengshidoc-summary .summary .chapter')
     .filter(function() {
         var $link = $(this).children('a'),
             href  = null;

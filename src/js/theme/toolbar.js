@@ -118,7 +118,7 @@ function createButton(opts) {
 // Update a button
 function updateButton(opts) {
     var $result;
-    var $toolbar = $('.book-header');
+    var $toolbar = $('.hengshidoc-header');
     var $title = $toolbar.find('h1');
 
     // Build class name

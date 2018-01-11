@@ -28,14 +28,14 @@ function init() {
     }
 
     // Close sidebar after clicking a link on mobile
-    $(document).on('click', '.book-summary li.chapter a', function(e) {
+    $(document).on('click', '.hengshidoc-summary li.chapter a', function(e) {
         if (platform.isMobile()) toggleSidebar(false, false);
     });
 }
 
 // Filter summary with a list of path
 function filterSummary(paths) {
-    var $summary = $('.book-summary');
+    var $summary = $('.hengshidoc-summary');
 
     $summary.find('li').each(function() {
         var path = $(this).data('path');

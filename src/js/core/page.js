@@ -43,7 +43,7 @@ function setState(newState) {
     state.book          = newState.book;
 
     // Deprecated
-    state.$book         = $('.book');
+    state.$book         = $('.hengshidoc');
     state.revision      = state.gitbook.time;
     state.level         = state.page.level;
     state.filepath      = state.file.path;
