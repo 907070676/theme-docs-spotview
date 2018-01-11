@@ -18,6 +18,6 @@ function init() {
   });
 }
 
-module.export = {
+module.exports = {
   init: init,
 };

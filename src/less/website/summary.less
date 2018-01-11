@@ -2,18 +2,13 @@
     font-family: @font-family-sans;
 
     position: absolute;
-    top: 0px;
-    left: -@sidebar-width;
-    bottom: 0px;
+    top: @sidebar-top;
+    left: 0;
     z-index: 1;
-    overflow-y: auto;
 
     width: @sidebar-width;
     color: @sidebar-color;
     background: @sidebar-background;
-    border-right: @sidebar-border-right;
-
-    .transition(left @sidebar-transition-duration ease);
 
     ul.summary {
         list-style: none;
@@ -91,23 +86,10 @@
         }
     }
 
-    @media (max-width: @sidebar-breakpoint) {
-        width: calc(~"100% - 60px");
-        bottom: 0px;
-        left: -100%;
-    }
 }
 
-.hengshidoc {
-    &.with-summary {
-        .hengshidoc-summary {
-            left: 0px;
-        }
-    }
-
-    &.without-animation {
-        .hengshidoc-summary {
-            .transition(none) !important;
-        }
+@media (max-width: @mobileMaxWidth) {
+    .hengshidoc-summary {
+        position: static;
     }
 }

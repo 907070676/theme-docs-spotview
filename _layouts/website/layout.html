@@ -6,23 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon-152x152.png">
-    <link rel="shortcut icon" href="/images/favicon-32x32.png" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/favicon-152x152.png">
+    <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
 {% endblock %}
 
 {% block style %}
-    {### Include theme css before plugins css ###}
-    <link rel="stylesheet" href="{{ "style.css"|resolveAsset }}">
-
     {{ super() }}
-
-    {### Custom stylesheets for the book ###}
-
-    {% for type, style in config.styles %}
-        {% if fileExists(style) and type == "website" %}
-        <link rel="stylesheet" href="{{ style|resolveFile }}">
-        {% endif %}
-    {% endfor %}
+    <link rel="stylesheet" href="{{ "website.css"|resolveAsset }}">
 {% endblock %}
 
 {% block body %}{% endblock %}
