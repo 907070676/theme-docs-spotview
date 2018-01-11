@@ -1,58 +1,24 @@
 .book {
-    position: relative;
     width: 100%;
-    height: 100%;
-
-    &.with-summary {
-        @media (min-width: @sidebar-breakpoint) {
-            .book-body {
-                left: @sidebar-width;
-            }
-        }
-        @media (max-width: @sidebar-breakpoint) {
-            overflow: hidden;
-
-            .book-body {
-                .translate(~"calc(100% - 60px)", 0px);
-            }
-        }
-    }
-
-    &.without-animation {
-        .book-body {
-            .transition(none) !important;
-        }
-    }
+    color: @page-color;
+    background: @body-background;
 }
 
 .book-body {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    left: 0px;
-    bottom: 0px;
-    overflow-y: auto;
+    .response-bigger-maxwidth;
 
-    color: @page-color;
-    background: @body-background;
-    .transition(left @sidebar-transition-duration ease);
+    position: relative;
+    padding-left: @sidebar-width;
 
-    .body-inner {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        left: 0px;
-        bottom: 0px;
-        overflow-y: auto;
+    &-inner {
+        min-height: calc(~"100% - 50px")
     }
+}
 
-    @media (max-width: @mobileMaxWidth) {
-        .transition-transform(@sidebar-transition-duration ease);
-        padding-bottom: 20px;
+@media (max-width: @mobileMaxWidth) {
+    .book-body {
+        .response-mobile;
 
-        .body-inner {
-            position: static;
-            min-height: calc(~"100% - 50px")
-        }
+        padding-left: 0;
     }
 }

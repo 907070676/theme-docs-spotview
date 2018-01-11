@@ -1,0 +1,31 @@
+
+.book-footer {
+  font-size: .6em;
+  color: @footer-color;
+  height: @footer-height;
+  background: @footer-background;
+
+  p {
+    .response-bigger-maxwidth;
+
+    text-align: center;
+    line-height: @footer-height;
+
+    &:before {
+      content: "\A9";
+      font-size: 1em;
+      color: @footer-color;
+      display: inline-block;
+      vertical-align: sub;
+      line-height: 1;
+    }
+  }
+}
+
+@media (max-width: @mobileMaxWidth) {
+  .book-footer {
+    p {
+      .response-mobile;
+    }
+  }
+}

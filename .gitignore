@@ -28,3 +28,7 @@ node_modules
 *.swp
 
 _assets
+
+# Mac hidden file
+_layouts/.DS_Store
+src/less/.DS_Store
