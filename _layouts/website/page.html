@@ -30,32 +30,37 @@
 <div class="hengshidoc">
     <div class="hengshidoc-header">
         <div class="hengshidoc-header-inner">
+            <img src="{{ "images/logo.svg"|resolveAsset }}" class="logo">
             <h1>{{ config.title }}</h1>
             {% block search_input %}{% endblock %}
         </div>
-        <div class="hengshidoc-header-breadcrumb"></div>
+    </div>
+    <div class="hengshidoc-breadcrumb">
+        <div class="hengshidoc-breadcrumb-inner"></div>
     </div>
 
     <div class="hengshidoc-body">
-        <div class="hengshidoc-summary">
-            {% block book_sidebar %}
-                {% block book_summary %}
-                    <nav role="navigation">
-                    {% include "website/summary.html" %}
-                    </nav>
-                {% endblock %}
+        {% block book_sidebar %}
+            {% block book_summary %}
+                {% include "website/summary.html" %}
             {% endblock %}
-        </div>
+        {% endblock %}
 
         {% block book_body %}
-            <div class="body-inner">
+            <div class="hengshidoc-body-inner">
                 {% block book_inner %}
                     <div class="page-wrapper" tabindex="-1" role="main">
                         <div class="page-inner">
                             {% block search_results %}
                                 <section class="normal markdown-section">
                                 {% block page %}
-                                {{ page.content|safe }}
+                                    {% if file.path === "README.md" %}
+                                        <div class="hengshidoc-indexpage">
+                                    {% endif %}
+                                    {{ page.content|safe }}
+                                    {% if file.path === "README.md" %}
+                                        </div>
+                                    {% endif %}
                                 {% endblock %}
                                 </section>
                             {% endblock %}
@@ -65,12 +70,14 @@
             </div>
         {% endblock %}
     </div>
-
+<!--
     <div class="hengshidoc-footer">
         <p>2017-2018 hengshi.com 京 ICP 备17050711号</p>
     </div>
-
+ -->
     <script>
+        var summaryObject = {{ summary|dump|safe }};
+
         var gitbook = gitbook || [];
         gitbook.push(function() {
             gitbook.page.hasChanged({{ template.getJSContext()|dump|safe }});

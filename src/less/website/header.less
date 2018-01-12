@@ -1,27 +1,68 @@
-.hengshidoc-header {
-    font-family: @font-family-sans;
+.hengshidoc {
+    &-header {
+        font-family: @font-family-sans;
 
-    height: @header-height;
-    z-index: 2;
+        height: @header-height;
 
-    font-size: 0.85em;
-    color: @header-color;
-    background: @header-background;
+        color: @header-color;
+        background: @header-background;
 
-    position: relative;
+        overflow: hidden;
 
-    &-inner {
-        .response-bigger-maxwidth;
+        &-inner {
+            .response-bigger-maxwidth;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
 
-        h1 {
-            font-size: 1.3em;
-            line-height: 2;
+            .logo {
+                position: absolute;
+                top: 20px;
+                left: 0;
+                width: @logo-width;
+            }
+
+            h1 {
+                font-size: 2rem;
+                line-height: 2;
+
+                margin-top: 65px; // temp
+            }
+        }
+    }
+
+    &-breadcrumb {
+        height: @breadcrumb-height;
+        line-height: @breadcrumb-height;
+
+        color: @breadcrumb-color;
+        background: @primary-background;
+
+        a {
+            color: inherit;
+
+            &:hover,
+            &:focus {
+                color: @primary-color;
+            }
+        }
+
+        i {
+            padding: 0 4px;
+        }
+
+        &-inner {
+            .response-bigger-maxwidth;
         }
     }
 }
 
 @media (max-width: @mobileMaxWidth) {
-    .hengshidoc-header-inner {
+    .hengshidoc-header-inner,
+    .hengshidoc-breadcrumb {
         .response-mobile;
+    }
+    .hengshidoc-header-inner .logo {
+        display: none;
     }
 }

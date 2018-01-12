@@ -11,61 +11,52 @@
 @maxWidth:                            1280px;
 @mobileMaxWidth:                      960px;
 
+@primary-color:                       #4A90E2;
+@primary-background:                  #f5f7f9;
+@divider-color:                       #e6e8ec;
+
+// Breadcrumb
+@breadcrumb-color:                    #b7bbc0;
+@breadcrumb-height:                   50px;
+
 // Header
 @header-height:                       250px;
-@header-color:                        hsl(194, 5%, 52%);
-@header-background:                   transparent;
-@header-border:                       rgba(0, 0, 0, 0.07);
-@header-button-color:                 #ccc;
-@header-button-hover-color:           #444;
-@header-button-hover-background:      none;
+@header-color:                        #fff;
+@header-background:                   @primary-color;
+
+// Logo
+@logo-width:                          160px;
 
 // Footer
 @footer-height:                       50px;
-@footer-color:                        #fefefe;
+@footer-color:                        @body-color;
 @footer-background:                   #444;
 
-// Navigation
-@navigation-color:                    @header-button-color;
-@navigation-hover-color:              @header-button-hover-color;
-
 // Body
+@body-color:                          #4f5257;
 @body-background:                     white;
 
 // Sidebar
-@sidebar-transition-duration:         250ms;
-@sidebar-width:                       300px;
-@sidebar-height:                      700px;
-@sidebar-top:                         100px;
-@sidebar-breakpoint:                  600px;
-@sidebar-color:                       hsl(207, 15%, 25%);
-@sidebar-background:                  #fafafa;
-@sidebar-border-right:                1px solid @header-border;
+@sidebar-top:                         35px;
+@sidebar-padding-top:                 30px;
+@sidebar-padding-left:                50px;
+@sidebar-width:                       340px;
+@sidebar-color:                       #74777a;
+@sidebar-background:                  @primary-background;
 
-@sidebar-nested-padding:              20px;
-@sidebar-divider-color:               @header-border;
-
-@sidebar-header-color:                #939da3;
-
-@sidebar-link-color:                  @sidebar-color;
+@sidebar-link-color:                  @body-color;
 @sidebar-link-background:             transparent;
-@sidebar-link-hover-color:            hsl(207, 100%, 50%);
+@sidebar-link-hover-color:            @primary-color;
 @sidebar-link-hover-background:       transparent;
-@sidebar-link-padding-v:              10px;
-@sidebar-link-padding-h:              15px;
-
-@sidebar-icon-color:                  hsl(120, 60%, 50%);
-@sidebar-link-completed:              @sidebar-link-color;
-@sidebar-link-completed-weight:       normal;
 
 // Search
-@search-padding-default:              1.5rem;
+@search-color:                        #d9dbdf;
+@search-width-max:                    500px;
+@search-height:                       40px;
 @search-results-opacity:              0.95;
 @search-highlight-color:              rgba(255, 220, 0, 0.4);
 
 // Page
-@page-color:                          black;
-@page-background:                     @body-background;
 
 // Content
 @content-line-height:                 1.7;
@@ -73,20 +64,21 @@
 
 // Dropdown
 @dropdown-zindex:                     100;
-@dropdown-divider-color:              @sidebar-divider-color;
+@dropdown-divider-color:              @divider-color;
 @dropdown-background:                 @sidebar-background;
-@dropdown-button-color:               darken(@header-button-color, 15%);
-@dropdown-border-color:               @sidebar-divider-color;
-@dropdown-button-hover-color:         @header-button-hover-color;
+@dropdown-button-color:               darken(@button-color, 15%);
+@dropdown-border-color:               @divider-color;
+@dropdown-button-hover-color:         @button-hover-color;
 
 // Buttons
-@button-background:                   #eee;
-@button-color:                        #666;
-@button-hover-color:                  #444;
+@button-background:                   @primary-color;
+@button-color:                        #fff;
+@button-hover-background:             lighten(@primary-color, 15%);
+@button-hover-color:                  #fff;
 
 // Border Radius
-@border-radius-base:                  1px;
-@border-radius-large:                 3px;
+@border-radius-base:                  2px;
+@border-radius-large:                 4px;
 @border-radius-small:                 1px;
 
 // Fonts

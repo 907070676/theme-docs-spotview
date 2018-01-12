@@ -6,13 +6,16 @@
     input {
         .response-bigger-maxwidth;
 
+        max-width: @search-width-max;
+        min-width: 120px;
         background: #fff;
-        border: 1px solid @header-border;
+        border: 1px solid #fff;
         box-shadow: none;
         outline: none;
-        line-height: 40px;
+        line-height: @search-height;
         padding: 0 10px;
-        color: inherit;
+        color: @search-color;
+        border-radius: @border-radius-large;
     }
 }
 
