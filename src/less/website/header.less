@@ -11,22 +11,28 @@
 
         &-inner {
             .response-bigger-maxwidth;
+
+            height: 100%;
             position: relative;
             text-align: center;
             overflow: hidden;
+            background-position: right bottom;
+            background-size: contain;
+            background-repeat: no-repeat;
 
             .logo {
                 position: absolute;
                 top: 20px;
                 left: 0;
-                width: @logo-width;
+                height: @logo-height;
             }
 
             h1 {
-                font-size: 2rem;
-                line-height: 2;
+                font-size: 42px;
+                font-weight: normal;
+                line-height: 1;
 
-                margin-top: 65px; // temp
+                margin-top: 75px; // temp
             }
         }
     }
@@ -48,21 +54,33 @@
         }
 
         i {
-            padding: 0 4px;
+            padding: 0 6px 0 4px;
         }
 
         &-inner {
             .response-bigger-maxwidth;
+
+            white-space: nowrap;
+            overflow-x: auto;
         }
     }
 }
 
 @media (max-width: @mobileMaxWidth) {
-    .hengshidoc-header-inner,
-    .hengshidoc-breadcrumb {
-        .response-mobile;
+    .hengshidoc-header {
+        height: 150px;
     }
-    .hengshidoc-header-inner .logo {
-        display: none;
+    .hengshidoc-header-inner {
+        .response-mobile;
+        .logo {
+            display: none;
+        }
+        h1 {
+            font-size: 1.2rem;
+            margin-top: 40px;
+        }
+    }
+    .hengshidoc-breadcrumb-inner {
+        width: 90%;
     }
 }

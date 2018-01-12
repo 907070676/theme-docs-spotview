@@ -29,14 +29,12 @@ function flatArticles(articles) {
 }
 
 function init() {
+  var $breadcrumbContainer = $('.hengshidoc-breadcrumb');
   var $breadcrumb = $('.hengshidoc-breadcrumb-inner');
   var currentPath = window.location.pathname.slice(1).split('/').pop().replace('.html', '');
 
   if (!currentPath) {
-    $breadcrumb.append($('<a>', {
-      text: '首页',
-      href: '/',
-    }));
+    $breadcrumbContainer.remove();
     return;
   }
 

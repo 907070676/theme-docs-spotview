@@ -3,6 +3,7 @@
 
     position: absolute;
     top: @sidebar-top;
+    padding-bottom: 20px;
     left: 0;
     z-index: 1;
 
@@ -15,6 +16,7 @@
         background: @sidebar-background;
 
         h2 {
+            font-size: 24px;
             color: @sidebar-color;
             margin: 0 0 20px 0;
         }
@@ -63,7 +65,7 @@
     }
 
     &-more {
-        padding: @sidebar-padding-top 0 @sidebar-padding-top @sidebar-padding-left;
+        padding: @sidebar-padding-top @sidebar-padding-left;
 
         p {
             margin-bottom: 10px;
@@ -79,17 +81,12 @@
 @media (max-width: @mobileMaxWidth) {
     .hengshidoc-summary {
         position: static;
+        width: 95%;
+        margin: 0 auto;
 
-        &-links {
-            padding: 20px;
-
-            ul li a,
-            ul li span {
-                line-height: 25px;
-            }
-        }
+        &-links,
         &-more {
-            display: none;
+            padding: 20px;
         }
     }
 }

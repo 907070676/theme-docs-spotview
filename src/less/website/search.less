@@ -2,28 +2,49 @@
     Search input and results, works in sync with the "search" plugin
 */
 
-#book-search-input {
-    input {
-        .response-bigger-maxwidth;
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: @search-color;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: @search-color;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: @search-color;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: @search-color;
+}
 
-        max-width: @search-width-max;
-        min-width: 120px;
+#book-search-input {
+    .response-bigger-maxwidth;
+
+    max-width: @search-width-max;
+    min-width: 120px;
+    position: relative;
+
+    input {
+        width: 100%;
         background: #fff;
         border: 1px solid #fff;
         box-shadow: none;
         outline: none;
         line-height: @search-height;
         padding: 0 10px;
-        color: @search-color;
+        color: @sidebar-color;
         border-radius: @border-radius-large;
-    }
-}
 
-@media (max-width: @mobileMaxWidth) {
-    #book-search-input {
-        input {
-            .response-mobile;
-        }
+        font-size: 20px;
+    }
+
+    &:after {
+        font: normal normal normal 14px/1 FontAwesome;
+        content: "\f002";
+        position: absolute;
+        right: 10px;
+        top: 0;
+        line-height: @search-height;
+        color: @search-color;
+        font-size: 23px;
     }
 }
 
@@ -35,23 +56,53 @@
             text-transform: uppercase;
             text-align: center;
             font-weight: 200;
+            margin-top: 0;
             margin-bottom: 35px;
-            opacity: 0.6;
         }
 
         .has-results {
             .search-results-item {
                 .gitbook-markdown(@md-color: @content-color, @md-line-height: @content-line-height);
-            }
 
-            .search-results-item h3 {
-                margin-top: 0px;
-                margin-bottom: 0px;
+                h3 {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+
+                    a {
+                        color: @primary-color;
+                    }
+                }
+
+                p {
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    width: 100%;
+                    overflow: hidden;
+                }
             }
         }
 
         .no-results {
             padding: 40px 0px;
+        }
+    }
+}
+
+@media (max-width: @mobileMaxWidth) {
+    #book-search-input {
+        width: 90%;
+
+        input,
+        &:after {
+            line-height: 30px;
+            font-size: 1rem;
+        }
+    }
+    #book-search-results {
+        .search-results {
+            .search-results-title {
+                font-size: 1.2rem;
+            }
         }
     }
 }
