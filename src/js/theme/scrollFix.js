@@ -9,7 +9,8 @@ function init() {
   var fixed = false;
 
   function onScroll() {
-    if (document.documentElement.scrollTop >= 250) {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+    if (scrollTop >= 250) {
       fixed = true;
       var bodyPaddingTop = 50;
       var breadcrumbContainerHeight = 0;
