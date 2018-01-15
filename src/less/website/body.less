@@ -84,6 +84,7 @@
                 padding-left: 25px;
 
                 a {
+                    display: block;
                     color: @body-color;
                     &:hover,
                     &:focus {
@@ -91,19 +92,14 @@
                         text-decoration: none;
                     }
                 }
-            }
-        }
-        & > ul > li {
-            a {
-                display: block;
-            }
-            &:before {
-                content: '•';
-                font-size: 6px;
-                line-height: 40px;
-                position: absolute;
-                left: 12px;
-                top: 0;
+                &:before {
+                    content: '•';
+                    font-size: 6px;
+                    line-height: 40px;
+                    position: absolute;
+                    left: 12px;
+                    top: 0;
+                }
             }
         }
     }

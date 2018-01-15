@@ -97,19 +97,25 @@
                 display: inline-block;
                 position: relative;
 
-                &:hover ul {
-                    opacity: 1;
-                    pointer-events: auto;
+                &:hover {
+                    & > a {
+                        color: @primary-color;
+                    }
+                    ul {
+                        opacity: 1;
+                        pointer-events: auto;
+                    }
                 }
 
                 ul {
                     position: absolute;
                     z-index: 2;
-                    left: -10%;
+                    left: -20px;
                     top: 100%;
-                    min-width: 110%;
+                    min-width: ~'calc(100% + 40px)';
                     background: @primary-background;
                     border-radius: 0 0 @border-radius-large @border-radius-large;
+                    box-shadow: 0 10px 20px 0px rgba(0, 0, 0, .1);
                     margin: 0;
                     padding: 5px 0;
 
@@ -120,9 +126,13 @@
                         list-style: none;
                         line-height: 40px;
 
+                        &:hover {
+                            background: #e2ecf8;
+                        }
+
                         a {
                             display: block;
-                            padding: 0 10px;
+                            padding: 0 20px;
                         }
                     }
                 }
