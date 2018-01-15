@@ -4,6 +4,7 @@
 // var sidebar =    require('./sidebar');
 // var toolbar =    require('./toolbar');
 var breadcrumb = require('./breadcrumb');
+var scrollFix = require('./scrollFix');
 
 var gitbook = window.gitbook;
 
@@ -22,6 +23,20 @@ function init() {
 
     // Init breadcrumb
     breadcrumb.init();
+
+    // Init element position fix when scroll
+    scrollFix.init();
+
+    $('.page-inner img').on('click', function(e) {
+        window.open(e.target.src);
+    });
+
+    if (!window.location.pathname.slice(1).split('/').pop()) {
+        // is index page
+        var $lis = $('.hengshidoc-indexpage > .normal > ul > li');
+        $($lis[1]).find('li:last-child a').addClass('hengshidoc-indexpage-more');
+        $($lis[3]).find('li:last-child a').addClass('hengshidoc-indexpage-more');
+    }
 
     // Add action to toggle sidebar
     // toolbar.createButton({

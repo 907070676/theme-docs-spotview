@@ -58,6 +58,13 @@
                                 left: 12px;
                                 top: 0;
                             }
+                            &.hengshidoc-indexpage-more {
+                                color: @primary-color;
+
+                                &:before {
+                                    content: '';
+                                }
+                            }
                         }
                     }
                 }
@@ -87,21 +94,75 @@
 }
 
 .hengshidoc-body {
-    .response-bigger-maxwidth;
-
-    position: relative;
-    padding-left: @sidebar-width;
 
     &-inner {
-        min-height: ~'calc(100vh - 300px)';
+        .response-bigger-maxwidth;
+
+        min-height: ~'calc(100vh - 250px)';
+        padding-left: @sidebar-width;
+        position: relative;
+
+        .navigation {
+            display: inline-block;
+            width: 49%;
+            line-height: 1.86;
+            white-space: nowrap;
+            color: @primary-color;
+            padding-bottom: 50px;
+
+            &-prev {
+                text-align: left;
+                padding-left: 30px;
+
+                .fa {
+                    margin-right: 5px;
+                }
+            }
+            &-next {
+                text-align: right;
+                padding-right: 30px;
+
+                .fa {
+                    margin-left: 5px;
+                }
+            }
+            .fa {
+                font-size: 1rem;
+            }
+            span {
+                display: inline;
+                width: 90%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        img {
+            cursor: pointer;
+        }
     }
 }
 
 @media (max-width: @mobileMaxWidth) {
     .hengshidoc-body {
-        .response-mobile;
 
-        padding-left: 0;
+        &-inner {
+            .response-mobile;
+
+            padding-left: 0;
+
+            .navigation {
+                position: static;
+                padding-bottom: 20px;
+
+                &-prev {
+                    padding-left: 10px;
+                }
+                &-next {
+                    padding-right: 10px;
+                }
+            }
+        }
     }
     .hengshidoc-indexpage .normal {
         & > ul > li {

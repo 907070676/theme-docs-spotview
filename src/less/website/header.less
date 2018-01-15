@@ -2,7 +2,9 @@
     &-header {
         font-family: @font-family-sans;
 
+        width: 100%;
         height: @header-height;
+        z-index: 2;
 
         color: @header-color;
         background: @header-background;
@@ -35,9 +37,38 @@
                 margin-top: 75px; // temp
             }
         }
+        &-fixed {
+            position: fixed;
+            height: 50px;
+            left: 0;
+            top: 0;
+
+            .hengshidoc-header-inner {
+                .logo {
+                    top: 13px;
+                }
+                h1 {
+                    display: none;
+                }
+
+                #book-search-input {
+                    position: absolute;
+                    right: 0;
+                    top: 9px;
+
+                    &:after,
+                    input {
+                        line-height: 30px;
+                    }
+                }
+            }
+        }
     }
 
     &-breadcrumb {
+        z-index: 2;
+
+        width: 100%;
         height: @breadcrumb-height;
         line-height: @breadcrumb-height;
 
@@ -61,7 +92,41 @@
             .response-bigger-maxwidth;
 
             white-space: nowrap;
-            overflow-x: auto;
+
+            div {
+                display: inline-block;
+                position: relative;
+
+                &:hover ul {
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+
+                ul {
+                    position: absolute;
+                    z-index: 2;
+                    left: -10%;
+                    top: 100%;
+                    min-width: 110%;
+                    background: @primary-background;
+                    border-radius: 0 0 @border-radius-large @border-radius-large;
+                    margin: 0;
+                    padding: 5px 0;
+
+                    opacity: 0;
+                    pointer-events: none;
+
+                    li {
+                        list-style: none;
+                        line-height: 40px;
+
+                        a {
+                            display: block;
+                            padding: 0 10px;
+                        }
+                    }
+                }
+            }
         }
     }
 }

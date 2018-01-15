@@ -14,3 +14,39 @@
     padding: 20px;
   }
 }
+
+.hengshidoc {
+  &-comment,
+  &-warning {
+    margin: 0;
+    margin-bottom: .85em;
+    padding: 15px;
+    border-left-width: 4px;
+    border-left-style: solid;
+
+    &:before {
+      font-family: FontAwesome;
+      margin-right: 10px;
+    }
+  }
+
+  &-comment {
+    color: @primary-color;
+    border-color: @primary-color;
+    background: rgba(74, 144, 226, .1);
+
+    &:before {
+      content: "\f0f6"
+    }
+  }
+  &-warning {
+    color: #dc5454;
+    border-color: #dc5454;
+    background: #fff6f8;
+
+    &:before {
+      color: #f8bbbb;
+      content: "\f071";
+    }
+  }
+}
