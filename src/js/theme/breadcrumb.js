@@ -65,7 +65,7 @@ function init() {
         text: path.title,
       });
     }
-    if (path.sibilings && path.sibilings.length) {
+    if (path.sibilings && path.sibilings.length > 1) {
       $text.append($('<i>', {
         class: 'fa fa-angle-down',
       }));
