@@ -5,7 +5,13 @@
 
     &-indexpage .normal,
     &-page .normal {
-        ul,li {
+        & > ul {
+            padding-left: 0!important;
+        }
+    }
+    &-indexpage .normal {
+        ul,
+        ul li {
             padding: 0;
             list-style: none;
 
@@ -18,11 +24,6 @@
                 }
             }
         }
-        & > ul {
-            padding-left: 0!important;
-        }
-    }
-    &-indexpage .normal {
         & > ul {
             & > li {
                 display: inline-block;
@@ -72,10 +73,25 @@
         }
     }
     &-page .normal {
-        li {
-            position: relative;
-            padding-left: 25px;
-            line-height: 40px;
+        .hengshidoc-custom-ul + p + ul {
+            li {
+                padding: 0;
+                list-style: none;
+                line-height: 40px;
+            }
+            & > li {
+                position: relative;
+                padding-left: 25px;
+
+                a {
+                    color: @body-color;
+                    &:hover,
+                    &:focus {
+                        color: @primary-color;
+                        text-decoration: none;
+                    }
+                }
+            }
         }
         & > ul > li {
             a {

@@ -16,21 +16,29 @@
 }
 
 .hengshidoc {
-  &-comment,
-  &-warning {
+  &-comment + p + blockquote,
+  &-warning + p + blockquote {
     margin: 0;
     margin-bottom: .85em;
-    padding: 15px;
+    padding: 15px 15px 15px 40px;
     border-left-width: 4px;
     border-left-style: solid;
+    position: relative;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
 
     &:before {
+      position: absolute;
+      left: 15px;
+      top: 15px;
       font-family: FontAwesome;
       margin-right: 10px;
     }
   }
 
-  &-comment {
+  &-comment + p + blockquote {
     color: @primary-color;
     border-color: @primary-color;
     background: rgba(74, 144, 226, .1);
@@ -39,7 +47,7 @@
       content: "\f0f6"
     }
   }
-  &-warning {
+  &-warning + p + blockquote {
     color: #dc5454;
     border-color: #dc5454;
     background: #fff6f8;
