@@ -71,8 +71,6 @@
         width: 100%;
         height: @breadcrumb-height;
         line-height: @breadcrumb-height;
-        overflow-x: auto;
-        overflow-y: visible;
 
         color: @breadcrumb-color;
         background: @primary-background;
@@ -157,8 +155,12 @@
             margin-top: 40px;
         }
     }
-    .hengshidoc-breadcrumb-inner {
-        width: 100%;
-        padding: 0 10px;
+    .hengshidoc-breadcrumb {
+        overflow-x: auto;
+
+        &-inner {
+            width: 100%;
+            padding: 0 10px;
+        }
     }
 }
