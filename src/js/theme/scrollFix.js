@@ -3,6 +3,7 @@ var $ = require('jquery');
 function init() {
   var $body = $('.hengshidoc-body');
   var $header = $('.hengshidoc-header');
+  var $bodyInner = $('.hengshidoc-body-inner');
   var $breadcrumbContainer = $('.hengshidoc-breadcrumb');
   var $summaryContainer = $('.hengshidoc-summary');
   var fixed = false;
@@ -38,10 +39,15 @@ function init() {
       $header.removeClass('hengshidoc-header-fixed');
       if ($breadcrumbContainer.length) $breadcrumbContainer.removeAttr('style');
     }
+    $bodyInner.css({
+      'padding-left': $summaryContainer.width() + 'px',
+    });
   }
 
   if (window.innerWidth > 960) {
+    onScroll();
     $(document).on('scroll', onScroll);
+    $(document).on('resize', onScroll);
   }
 }
 

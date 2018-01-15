@@ -2,7 +2,7 @@ var $ = require('jquery');
 
 function flatArticles(articles) {
   var mapFileNameToBreadcrumb = {};
-  function reduceMap(objs, parent) {
+  function reduceMap(objs, parent, sibilings) {
     objs.forEach(function(a, index) {
       var newPath = {
         title: a.title,
@@ -10,23 +10,24 @@ function flatArticles(articles) {
       if (a.path) {
         newPath.path = a.path.replace('.md', '');
       }
-      if (a.articles) {
-        newPath.childrens = [];
-        a.articles.forEach(function(ar, i) {
-          if (ar.path) {
-            newPath.childrens.push({
-              title: ar.title,
-              path: ar.path.replace('.md', ''),
-            });
-          }
-        });
+      if (sibilings) {
+        newPath.sibilings = sibilings;
       }
       var newParent = parent.concat([newPath]);
       if (newPath.path) {
         mapFileNameToBreadcrumb[newPath.path] = newParent;
       }
       if (a.articles) {
-        reduceMap(a.articles, newParent);
+        var childrens = [];
+        a.articles.forEach(function(ar, i) {
+          if (ar.path) {
+            childrens.push({
+              title: ar.title,
+              path: ar.path.replace('.md', ''),
+            });
+          }
+        });
+        reduceMap(a.articles, newParent, childrens);
       }
     });
   }
@@ -49,7 +50,6 @@ function init() {
   }
 
   var allArticles = flatArticles(summaryObject.parts[0].articles.slice(1));
-  console.log(allArticles);
   var current = allArticles[currentPath];
 
   current.forEach(function(path, index) {
@@ -65,12 +65,12 @@ function init() {
         text: path.title,
       });
     }
-    if (path.childrens && path.childrens.length) {
+    if (path.sibilings && path.sibilings.length) {
       $text.append($('<i>', {
         class: 'fa fa-angle-down',
       }));
       $ul = $('<ul>');
-      path.childrens.map(function(li, index) {
+      path.sibilings.map(function(li, index) {
         $ul.append($('<li>', {
           html: '<a href="' + li.path + '.html">' + li.title + '</a>',
         }));
