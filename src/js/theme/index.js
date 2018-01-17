@@ -33,9 +33,15 @@ function init() {
 
     if (!window.location.pathname.slice(1).split('/').pop()) {
         // is index page
+        $('.navigation').remove();
+
         var $lis = $('.hengshidoc-indexpage > .normal > ul > li');
         $($lis[1]).find('li:last-child a').addClass('hengshidoc-indexpage-more');
         $($lis[3]).find('li:last-child a').addClass('hengshidoc-indexpage-more');
+    } else {
+        $('.logo').css({ cursor: 'pointer' }).on('click', function(e) {
+            window.location.href = '/';
+        });
     }
 
     // Add action to toggle sidebar
