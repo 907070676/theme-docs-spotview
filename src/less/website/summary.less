@@ -10,6 +10,18 @@
     width: @sidebar-width;
     color: @body-color;
 
+    .version-select {
+        > div {
+            display: block;
+        }
+        select {
+            cursor: pointer;
+            padding: 0 10px;
+            line-height: 30px;
+            border-radius: 2px;
+        }
+    }
+
     &-links,
     &-more {
         border-radius: @border-radius-large;

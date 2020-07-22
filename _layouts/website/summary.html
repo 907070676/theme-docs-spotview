@@ -20,10 +20,10 @@
     {% endfor %}
 {% endmacro %}
 
-<div class="hengshidoc-summary">
+<div class="hengshidoc-summary book-summary">
     <div class="hengshidoc-summary-links">
         <h2>帮助文档目录</h2>
-        <ul>
+        <ul class="summary">
         {% for part in summary.parts %}
             {{ articles(part.articles, file, config) }}
         {% endfor %}
