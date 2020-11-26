@@ -1,6 +1,6 @@
 {
-  "name": "gitbook-plugin-theme-docs-hengshi",
-  "description": "Theme for Hengshi documents",
+  "name": "gitbook-plugin-theme-docs-spotview",
+  "description": "Theme for spotview documents",
   "main": "./index.js",
   "version": "1.0.7",
   "engines": {
@@ -25,17 +25,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/henglabs/theme-docs-hengshi.git"
+    "url": "https://github.com/907070676/theme-docs-spotview.git"
   },
   "author": "Hengshi Inc. <support@hengshi.com>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/henglabs/theme-docs-hengshi/issues"
+    "url": "https://github.com/907070676/theme-docs-spotview/issues"
   },
   "contributors": [
     {
       "name": "Thomas Chan",
-      "email": "chenjunhao5818@gmail.com"
+      "email": "907070676@qq.com"
     }
   ],
   "gitbook": {
